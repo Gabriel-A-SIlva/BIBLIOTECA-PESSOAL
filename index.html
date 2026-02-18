@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Painel BookBase</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="app">
+            <aside class="sidebar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h2>BookBase</h2>
+                </div>
+
+                <nav>
+                    <div class="nav-label">Menu Principal</div>
+                    <a href="#" class="menu-item active" data-target="home">
+                        <i class="fas fa-compass"></i> Explorar
+                    </a>
+                    <a href="#" class="menu-item" data-target="library">
+                        <i class="fas fa-bookmark"></i> Minha Biblioteca
+                    </a>
+                    <a href="#" class="menu-item" data-target="category">
+                        <i class="fas fa-layer-group"></i> Categorias
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="content">
+                <header class="header">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Pesquisar seus livros..."
+                        />
+                    </div>
+
+                    <div class="header-actions">
+                        <button
+                            id="themeToggle"
+                            class="btn-icon"
+                            title="Alternar Tema"
+                        >
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <div class="user-profile">
+                            <img
+                                src="https://i.pravatar.cc/150?img=11"
+                                alt="Perfil do Usuário"
+                                class="avatar"
+                            />
+                            <span class="user-name">Alex Smith</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="screens-container">
+                    <section id="home" class="screen active fade-in">
+                        <div class="section-header">
+                            <h3>Bem-vindo de volta, Alex 📚</h3>
+                            <p>Explore sua coleção e descubra novos mundos.</p>
+                        </div>
+
+                        <div class="filter-pills" id="homeFilters"></div>
+
+                        <div class="cards-grid" id="homeCards"></div>
+                    </section>
+
+                    <section id="library" class="screen fade-in">
+                        <div class="section-header">
+                            <h3>Adicionar à Biblioteca</h3>
+                            <p>
+                                Cadastre um novo livro na sua coleção pessoal.
+                            </p>
+                        </div>
+
+                        <div class="form-container">
+                            <div class="input-group">
+                                <input
+                                    type="text"
+                                    id="title"
+                                    placeholder="Título do Livro"
+                                />
+                                <input
+                                    type="text"
+                                    id="author"
+                                    placeholder="Autor"
+                                />
+                            </div>
+                            <div class="input-group">
+                                <input
+                                    type="text"
+                                    id="categoryInput"
+                                    placeholder="Categoria"
+                                />
+                                <input
+                                    type="text"
+                                    id="publisher"
+                                    placeholder="Editora"
+                                />
+                            </div>
+                            <textarea
+                                id="description"
+                                placeholder="Breve descrição..."
+                                rows="3"
+                            ></textarea>
+
+                            <div class="file-upload-wrapper">
+                                <label
+                                    for="coverInput"
+                                    class="custom-file-upload"
+                                >
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    Escolher Imagem da Capa
+                                </label>
+                                <input
+                                    type="file"
+                                    id="coverInput"
+                                    accept="image/*"
+                                />
+                                <span id="fileName" class="file-name"
+                                    >Nenhum arquivo selecionado</span
+                                >
+                            </div>
+
+                            <button id="addBook" class="btn-primary">
+                                <i class="fas fa-plus"></i> Adicionar Livro
+                            </button>
+                        </div>
+
+                        <div class="section-header mt-40">
+                            <h3>Gerenciar Biblioteca</h3>
+                        </div>
+                        <div class="cards-grid" id="libraryGrid"></div>
+                    </section>
+
+                    <section id="category" class="screen fade-in">
+                        <div class="section-header">
+                            <h3>Gerenciar Categorias</h3>
+                            <p>Crie e organize seus gêneros de livros.</p>
+                        </div>
+
+                        <div class="category-form">
+                            <input
+                                type="text"
+                                id="categoryName"
+                                placeholder="Nome da nova categoria (ex: Ficção Científica)"
+                            />
+                            <button id="addCategory" class="btn-primary">
+                                Criar
+                            </button>
+                        </div>
+
+                        <div class="categories-list" id="categoriesList"></div>
+                    </section>
+                </div>
+            </main>
+
+            <aside class="details">
+                <div id="detailsContent" class="details-content">
+                    <div class="empty-details">
+                        <i class="fas fa-book-reader"></i>
+                        <p>Selecione um livro para ver os detalhes</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
